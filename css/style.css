@@ -12,6 +12,17 @@ p {
     text-align: justify;
 }
 
+.knowledge-logo {
+  width: 90px;
+  height: 70px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.knowledge-logo:hover {
+  transform: scale(1.08);
+}
+
 .navbar-brand {
     color: var(--brand)
 }
