@@ -848,6 +848,7 @@ html {
     font-weight: 700;
     color: #1a2f22;
     margin-bottom: 0.15rem;
+    text-decoration: none;
 }
 
 .member-info p {
