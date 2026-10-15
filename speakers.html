@@ -4,94 +4,656 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Cache-control" content="no-cache">
-    <title>ICE2CPT 2026 — Speakers</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-" crossorigin="anonymous">
+    <meta http-equiv="Cache-Control" content="no-cache">
+
+    <title>Speakers | ICE2CPT 2026</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Website Styles -->
     <link rel="stylesheet" href="css/style.css?v=3.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
-        integrity="" crossorigin="anonymous">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity=""
-        crossorigin="anonymous">
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <link rel="icon" type="image/jpeg" href="images/coer.jpeg">
+
+    <style>
+        /* ==============================
+           GLOBAL STYLES
+        ============================== */
+
+        :root {
+            --speaker-blue: #214ed8;
+            --speaker-dark: #172033;
+            --speaker-muted: #697386;
+            --speaker-border: #e8edf5;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #ffffff;
+            color: var(--speaker-dark);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                "Segoe UI", sans-serif;
+        }
+
+        /* ==============================
+           NAVIGATION
+        ============================== */
+
+        .navbar {
+            padding: 12px 0;
+        }
+
+        .navbar-brand img {
+            max-height: 65px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .navbar-nav .nav-link {
+            color: #344054;
+            font-size: 0.94rem;
+            transition: color 0.2s ease;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--speaker-blue);
+        }
+
+        /* ==============================
+           SPEAKERS HERO SECTION
+        ============================== */
+
+        .speakers-header {
+            position: relative;
+            padding: 65px 20px;
+            overflow: hidden;
+            background: linear-gradient(135deg,
+                    #e8efff 0%,
+                    #f4f7ff 50%,
+                    #eaf3ff 100%);
+            text-align: center;
+        }
+
+        /* Soft decorative background circles */
+
+        .speakers-header::before,
+        .speakers-header::after {
+            position: absolute;
+            content: "";
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .speakers-header::before {
+            top: -100px;
+            left: -80px;
+            width: 280px;
+            height: 280px;
+            background: rgba(33, 78, 216, 0.045);
+        }
+
+        .speakers-header::after {
+            right: -100px;
+            bottom: -150px;
+            width: 350px;
+            height: 350px;
+            background: rgba(33, 78, 216, 0.055);
+        }
+
+        .speakers-header .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* White panel behind all heading text */
+
+        .hero-content {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 42px 30px;
+            border: 1px solid rgba(33, 78, 216, 0.12);
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.92);
+            box-shadow: 0 15px 45px rgba(33, 78, 216, 0.08);
+        }
+
+        .section-label {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 9px 18px;
+            border: 1px solid #d5e1ff;
+            border-radius: 30px;
+            background: #eaf0ff;
+            color: var(--speaker-blue);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .speakers-header h1 {
+            margin-bottom: 16px;
+            color: #172b5e;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            letter-spacing: -1.3px;
+            line-height: 1.2;
+        }
+
+        .speakers-header p {
+            max-width: 600px;
+            margin: 0 auto;
+            color: #596780;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        /* ==============================
+           SPEAKERS SECTION
+        ============================== */
+
+
+        /* ===== FIX: Ensure Hero Text Is Visible ===== */
+
+        .speakers-header .hero-content {
+            position: relative;
+            z-index: 5;
+            background: #ffffff !important;
+            border: 1px solid #d6e2ff;
+            box-shadow: 0 15px 45px rgba(33, 78, 216, 0.12);
+        }
+
+        .speakers-header .hero-content .section-label {
+            background-color: #e3ebff !important;
+            color: #173fb5 !important;
+            border-color: #c4d5ff;
+        }
+
+        .speakers-header .hero-content h1 {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            color: #142d65 !important;
+            background: transparent !important;
+            font-weight: 800;
+            text-shadow: none !important;
+        }
+
+        .speakers-header .hero-content p {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            color: #344054 !important;
+            background: transparent !important;
+            font-weight: 400;
+            text-shadow: none !important;
+            line-height: 1.8;
+        }
+
+
+        .speakers-section {
+            padding: 55px 0 85px;
+            background: #ffffff;
+        }
+
+        .speaker-card {
+            position: relative;
+            height: 100%;
+            max-width: 370px;
+            margin: 0 auto;
+            overflow: hidden;
+            border: 1px solid var(--speaker-border);
+            border-radius: 20px;
+            background: #ffffff;
+            box-shadow: 0 8px 35px rgba(25, 45, 90, 0.055);
+            text-align: center;
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+        }
+
+        .speaker-card:hover {
+            transform: translateY(-6px);
+            border-color: #d6e1ff;
+            box-shadow: 0 18px 45px rgba(25, 45, 90, 0.11);
+        }
+
+        /* Decorative top of speaker card */
+
+        .speaker-card-top {
+            height: 100px;
+            background: linear-gradient(135deg,
+                    #edf2ff 0%,
+                    #dce7ff 100%);
+        }
+
+        .speaker-content {
+            padding: 0 28px 30px;
+        }
+
+        /* Circular portrait */
+
+        .speaker-image-wrapper {
+            width: 156px;
+            height: 156px;
+            margin: -62px auto 20px;
+            padding: 5px;
+            overflow: hidden;
+            border: 1px solid #e3eaf8;
+            border-radius: 50%;
+            background: #ffffff;
+            box-shadow: 0 6px 18px rgba(20, 40, 80, 0.12);
+        }
+
+        .speaker-image {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center 35%;
+        }
+
+        /* Speaker badge */
+
+        .speaker-tag {
+            display: inline-block;
+            margin-bottom: 13px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            background: #eef3ff;
+            color: var(--speaker-blue);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+
+        /* Speaker details */
+
+        .speaker-name {
+            margin-bottom: 9px;
+            color: var(--speaker-blue);
+            font-size: 1.4rem;
+            font-weight: 750;
+            line-height: 1.35;
+        }
+
+        .speaker-designation {
+            margin-bottom: 5px;
+            color: #344054;
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+
+        .speaker-affiliation {
+            margin-bottom: 22px;
+            color: var(--speaker-muted);
+            font-size: 0.92rem;
+            line-height: 1.7;
+        }
+
+        .speaker-divider {
+            width: 42px;
+            height: 3px;
+            margin: 0 auto 20px;
+            border-radius: 10px;
+            background: var(--speaker-blue);
+        }
+
+        .speaker-location {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: #667085;
+            font-size: 0.88rem;
+        }
+
+        .speaker-location i {
+            color: var(--speaker-blue);
+        }
+
+        /* ==============================
+           FOOTER
+        ============================== */
+
+        .footer {
+            background: #111827;
+            color: #aeb7c6;
+        }
+
+        .footer p {
+            margin-bottom: 5px;
+        }
+
+        /* ==============================
+           RESPONSIVE DESIGN
+        ============================== */
+
+        @media (max-width: 767px) {
+            .navbar-brand img {
+                max-height: 48px;
+            }
+
+            .speakers-header {
+                padding: 38px 15px;
+            }
+
+            .hero-content {
+                padding: 32px 20px;
+                border-radius: 18px;
+            }
+
+            .section-label {
+                margin-bottom: 16px;
+                font-size: 0.72rem;
+            }
+
+            .speakers-header h1 {
+                letter-spacing: -0.7px;
+            }
+
+            .speakers-header p {
+                font-size: 0.95rem;
+                line-height: 1.7;
+            }
+
+            .speakers-section {
+                padding: 35px 0 55px;
+            }
+
+            .speaker-card {
+                max-width: 340px;
+            }
+
+            .speaker-content {
+                padding-right: 22px;
+                padding-left: 22px;
+            }
+        }
+
+        /* Respect reduced-motion preferences */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .speaker-card,
+            .navbar-nav .nav-link {
+                transition: none;
+            }
+
+            .speaker-card:hover {
+                transform: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
+
+    <!-- ==============================
+         NAVIGATION BAR
+    ============================== -->
+
     <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
         <div class="container">
+
+            <!-- Primary Logo -->
+
             <a class="navbar-brand fw-bold" href="index.html">
                 <img src="images/logo.png" alt="ICE2CPT 2026 Logo">
             </a>
+
+            <!-- Mobile Menu Button -->
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu"
-                aria-controls="#navmenu" aria-expanded="false" aria-label="Toggle navigation">
+                aria-controls="navmenu" aria-expanded="false" aria-label="Toggle navigation">
+
                 <span class="navbar-toggler-icon"></span>
             </button>
-           <div class="collapse navbar-collapse" id="navmenu">
-				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-					<li class="nav-item"><a class="nav-link" href="general-chair.html">General Chair</a></li>
-					<li class="nav-item"><a class="nav-link" href="committee.html">Committee</a></li>
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="authorsDropdown" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false">Authors</a>
-						<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="authorsDropdown">
-							<li><a class="dropdown-item" href="call-for-papers.html">Call for Papers</a></li>
-							<li><a class="dropdown-item" href="call-for-special-session.html">Call for Special
-									Session</a></li>
-							<li><a class="dropdown-item" href="important-dates.html">Important Dates</a></li>
-							<li><a class="dropdown-item" href="paper-submission-guidelines.html">Paper Submission
-									Guidelines</a></li>
-							<li><a class="dropdown-item" href="conference-program.html">Conference Program</a></li>
-						</ul>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="speakers.html">Speakers</a></li>
-					<li class="nav-item"><a class="nav-link" href="sponsors.html">Sponsors</a></li>
-					<li class="nav-item"><a class="nav-link" href="index.html#registration-fees">Registration</a></li>
-					<li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
-				</ul>
-			</div>
-            <a class="navbar-brand fw-bold" href="index.html">
-                <img src="images/logoNew.gif" alt="ICE2CPT 2026 Logo" style="height: 90px;">
+
+            <!-- Navigation Links -->
+
+            <div class="collapse navbar-collapse" id="navmenu">
+
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="general-chair.html">
+                            General Chair
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="committee.html">
+                            Committee
+                        </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+
+                        <a class="nav-link dropdown-toggle" href="#" id="authorsDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Authors
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="authorsDropdown">
+
+                            <li>
+                                <a class="dropdown-item" href="call-for-papers.html">
+                                    Call for Papers
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="call-for-special-session.html">
+                                    Call for Special Session
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="important-dates.html">
+                                    Important Dates
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="paper-submission-guidelines.html">
+                                    Paper Submission Guidelines
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="conference-program.html">
+                                    Conference Program
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="speakers.html" aria-current="page">
+                            Speakers
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="sponsors.html">
+                            Sponsors
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#registration-fees">
+                            Registration
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            Contact Us
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <!-- Secondary Logo: Desktop Only -->
+
+            <a class="navbar-brand fw-bold ms-lg-3 d-none d-lg-block" href="index.html">
+
+                <img src="images/logoNew.gif" alt="ICE2CPT 2026 Conference Logo" style="height: 65px;">
             </a>
+
         </div>
     </nav>
 
-    <header class="py-5 bg-light">
-        <div class="container text-center">
-            <div class="py-5">
-                <h1 class="display-5 fw-bold">Speakers</h1>
-                <p class="lead text-muted">Speaker details will be available soon for ICE2CPT 2026.</p>
+    <!-- ==============================
+         SPEAKERS HERO SECTION
+    ============================== -->
+
+    <header class="speakers-header">
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <span class="section-label">
+                    ICE2CPT 2026
+                </span>
+
+                <h1>Distinguished Speakers</h1>
+
+                <p>
+                    Meet the distinguished experts and thought leaders
+                    contributing their insights to ICE2CPT 2026.
+                </p>
+
             </div>
+
         </div>
+
     </header>
 
-    <main class="py-5">
+    <!-- ==============================
+         SPEAKER CARDS
+    ============================== -->
+
+    <main class="speakers-section">
+
         <div class="container">
-            <div class="card shadow-sm border-0 text-center py-5">
-                <div class="card-body">
-                    <i class="fas fa-microphone fa-4x text-primary mb-4"></i>
-                    <h2 class="h4 fw-bold mb-3">Coming Soon</h2>
-                    <p class="text-muted">We are finalizing the speaker lineup and will publish details here shortly. Please check back soon for keynote speakers, invited talks, and session presenters.</p>
-                    <a href="index.html" class="btn btn-primary mt-3">Back to Home</a>
+
+            <div class="row justify-content-center g-4">
+
+                <!-- Prof. Brij B. Gupta -->
+
+                <div class="col-12 col-sm-10 col-md-6 col-lg-4">
+
+                    <article class="speaker-card">
+
+                        <!-- Decorative Background -->
+
+                        <div class="speaker-card-top"></div>
+
+                        <div class="speaker-content">
+
+                            <!-- Speaker Portrait -->
+
+                            <div class="speaker-image-wrapper">
+
+                                <img src="https://www.krmangalam.edu.in/wp-content/uploads/2024/09/brij-gupta.jpg"
+                                    alt="Portrait of Prof. Brij B. Gupta" class="speaker-image" loading="lazy">
+
+                            </div>
+
+                            <!-- Speaker Category -->
+
+                            <span class="speaker-tag">
+                                Distinguished Speaker
+                            </span>
+
+                            <!-- Speaker Name -->
+
+                            <h2 class="speaker-name">
+                                Prof. Brij B. Gupta
+                            </h2>
+
+                            <!-- Designation -->
+
+                            <p class="speaker-designation">
+                                Director
+                            </p>
+
+                            <!-- Institution -->
+
+                            <p class="speaker-affiliation">
+                                CCRI, Asia University<br>
+                                Taiwan
+                            </p>
+
+                            <!-- Decorative Divider -->
+
+                            <div class="speaker-divider"></div>
+
+                            <!-- Location -->
+
+                            <div class="speaker-location">
+
+                                <i class="fa-solid fa-location-dot" aria-hidden="true">
+                                </i>
+
+                                <span>Taiwan</span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
                 </div>
+
             </div>
+
         </div>
+
     </main>
 
-    <footer class="footer mt-5 py-4 bg-dark text-white-50">
+    <!-- ==============================
+         FOOTER
+    ============================== -->
+
+    <footer class="footer mt-4 py-4">
+
         <div class="container text-center">
-            <p class="mb-1">© 2026 COER University. All rights reserved.</p>
-            <p class="small mb-0">Designed by COER Web Team</p>
+
+            <p>
+                © 2026 COER University. All rights reserved.
+            </p>
+
+            <p class="small mb-0">
+                Designed by COER Web Team
+            </p>
+
         </div>
+
     </footer>
 
-    <script src="js/jquery-3.6.0.min.js?v=0.1" integrity="" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity=""
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity=""
-        crossorigin="anonymous"></script>
-    <script src="js/main.js?v=2.3"></script>
+    <!-- Bootstrap JavaScript -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+    </script>
+
 </body>
 
 </html>
