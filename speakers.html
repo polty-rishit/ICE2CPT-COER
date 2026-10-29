@@ -208,7 +208,7 @@
         .speaker-card {
             position: relative;
             height: 100%;
-            max-width: 370px;
+            max-width: none;
             margin: 0 auto;
             overflow: hidden;
             border: 1px solid var(--speaker-border);
@@ -238,7 +238,55 @@
         }
 
         .speaker-content {
-            padding: 0 28px 30px;
+            padding: 0 22px 28px;
+        }
+
+        .speaker-talk-title {
+            margin: 18px 0 12px;
+            color: #172b5e;
+            font-size: 1rem;
+            font-weight: 750;
+            line-height: 1.55;
+        }
+
+        .speaker-meta {
+            margin: 0 0 8px;
+            color: #596780;
+            font-size: .88rem;
+            line-height: 1.65;
+            overflow-wrap: anywhere;
+        }
+
+        .speaker-meta i {
+            width: 18px;
+            margin-right: 5px;
+            color: var(--speaker-blue);
+        }
+
+        .speaker-abstract {
+            margin-top: 14px;
+            color: #596780;
+            font-size: .88rem;
+            line-height: 1.75;
+            text-align: left;
+        }
+
+        .speaker-abstract strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #344054;
+        }
+
+        .speaker-image-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e8efff, #dce7ff);
+            color: #214ed8;
+            font-size: 2.8rem;
         }
 
         /* Circular portrait */
@@ -554,75 +602,158 @@
 
         <div class="container">
 
-            <div class="row justify-content-center g-4">
-
-                <!-- Prof. Brij B. Gupta -->
-
-                <div class="col-12 col-sm-10 col-md-6 col-lg-4">
-
+            <div class="row g-4 align-items-stretch">
+                <!-- Existing distinguished speaker -->
+                <div class="col-12 col-md-6 col-xl-3">
                     <article class="speaker-card">
-
-                        <!-- Decorative Background -->
-
                         <div class="speaker-card-top"></div>
-
                         <div class="speaker-content">
-
-                            <!-- Speaker Portrait -->
-
-                            <div class="speaker-image-wrapper">
-
-                                <img src="https://www.krmangalam.edu.in/wp-content/uploads/2024/09/brij-gupta.jpg"
-                                    alt="Portrait of Prof. Brij B. Gupta" class="speaker-image" loading="lazy">
-
-                            </div>
-
-                            <!-- Speaker Category -->
-
-                            <span class="speaker-tag">
-                                Distinguished Speaker
-                            </span>
-
-                            <!-- Speaker Name -->
-
-                            <h2 class="speaker-name">
-                                Prof. Brij B. Gupta
-                            </h2>
-
-                            <!-- Designation -->
-
-                            <p class="speaker-designation">
-                                Director
-                            </p>
-
-                            <!-- Institution -->
-
-                            <p class="speaker-affiliation">
-                                CCRI, Asia University<br>
-                                Taiwan
-                            </p>
-
-                            <!-- Decorative Divider -->
-
+                            <div class="speaker-image-wrapper"><img
+                                    src="https://www.krmangalam.edu.in/wp-content/uploads/2024/09/brij-gupta.jpg"
+                                    alt="Portrait of Prof. Brij B. Gupta" class="speaker-image" loading="lazy"></div>
+                            <span class="speaker-tag">Distinguished Speaker</span>
+                            <h2 class="speaker-name">Prof. Brij B. Gupta</h2>
+                            <p class="speaker-designation">Director</p>
+                            <p class="speaker-affiliation">CCRI, Asia University<br>Taiwan</p>
                             <div class="speaker-divider"></div>
-
-                            <!-- Location -->
-
-                            <div class="speaker-location">
-
-                                <i class="fa-solid fa-location-dot" aria-hidden="true">
-                                </i>
-
-                                <span>Taiwan</span>
-
-                            </div>
-
+                            <div class="speaker-location"><i class="fa-solid fa-location-dot"
+                                    aria-hidden="true"></i><span>Taiwan</span></div>
                         </div>
-
                     </article>
-
                 </div>
 
+                <!-- Keynote: Spencer Bharath Amirthaiyan -->
+                <div class="col-12 col-md-6 col-xl-3">
+                    <article class="speaker-card">
+                        <div class="speaker-card-top"></div>
+                        <div class="speaker-content">
+                            <div class="speaker-image-wrapper">
+                                <!-- Replace YOUR_IMAGE_LINK_HERE with your actual image URL -->
+                                <img src="images/Spencer.jpeg" alt="Spencer Bharath Amirthaiyan" class="speaker-image"
+                                    style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <span class="speaker-tag">Keynote Speaker</span>
+                            <h2 class="speaker-name">Spencer Bharath Amirthaiyan</h2>
+                            <p class="speaker-designation">Director IT</p>
+                            <p class="speaker-affiliation">Revature, USA</p>
+                            <div class="speaker-divider"></div>
+                            <p class="speaker-meta"><i class="fa-solid fa-briefcase" aria-hidden="true"></i>13 years of
+                                experience</p>
+                            <p class="speaker-meta"><i class="fa-solid fa-envelope" aria-hidden="true"></i><a
+                                    href="mailto:spencerbharath@gmail.com">spencerbharath@gmail.com</a></p>
+                            <h3 class="speaker-talk-title">Land Ready, Deliver Fast: Your Guide to Becoming an AI
+                                Forward Deployed Engineer</h3>
+                            <div class="speaker-abstract"><strong>Talk Abstract</strong>The AI-focused Forward Deployed
+                                Engineer sits where technology meets real-world problems, a role that accelerates
+                                careers and sparks entrepreneurship. With insights from industry experts, discover how
+                                students can land ready and deliver fast, using hands-on AI skills, customer empathy,
+                                and rapid execution to grow professionally and build their own venture.</div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Keynote: Gnana Sunny Antony -->
+                <div class="col-12 col-md-6 col-xl-3">
+                    <article class="speaker-card">
+                        <div class="speaker-card-top"></div>
+                        <div class="speaker-content">
+                            <div class="speaker-image-wrapper">
+                                <!-- Replace YOUR_IMAGE_LINK_HERE with your actual image URL -->
+                                <img src="images/speaker3.jpeg" alt="Gnana Sunny Antony" class="speaker-image"
+                                    style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <span class="speaker-tag">Keynote Speaker</span>
+                            <h2 class="speaker-name">Gnana Sunny Antony</h2>
+                            <p class="speaker-designation">Senior Application Dev Manager</p>
+                            <p class="speaker-affiliation">ASRC Federal Vistronix</p>
+                            <div class="speaker-divider"></div>
+                            <p class="speaker-meta"><i class="fa-solid fa-briefcase" aria-hidden="true"></i>13 years of
+                                experience</p>
+                            <p class="speaker-meta"><i class="fa-solid fa-envelope" aria-hidden="true"></i><a
+                                    href="mailto:Sunnyantony91@gmail.com">Sunnyantony91@gmail.com</a></p>
+                            <h3 class="speaker-talk-title">From Chatbots to Co-Workers: How AI Is Learning to Act in the
+                                Physical World</h3>
+                            <div class="speaker-abstract"><strong>Talk Abstract</strong>Artificial intelligence is
+                                moving beyond screens and into the physical world. This keynote explores how machine
+                                learning enables autonomous systems and robots to perceive, decide, and act. It examines
+                                real-world impact across industry, healthcare, and smart cities, the safety and security
+                                challenges ahead, and opportunities for researchers and innovators.</div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-12 col-md-6 col-xl-3">
+                    <article class="speaker-card">
+                        <div class="speaker-card-top"></div>
+                        <div class="speaker-content">
+                            <div class="speaker-image-wrapper">
+                                <!-- Replace YOUR_IMAGE_LINK_HERE with your actual image URL -->
+                                <img src="images/speaker1.jpeg" alt="Venkata Praveen Kumar Kaluvakuri"
+                                    class="speaker-image" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <span class="speaker-tag">Keynote Speaker</span>
+                            <h2 class="speaker-name">Venkata Praveen Kumar Kaluvakuri</h2>
+                            <p class="speaker-designation">Engineer 3, Lead Software</p>
+                            <p class="speaker-affiliation">Enterprise Fleet Management, USA</p>
+                            <div class="speaker-divider"></div>
+                            <p class="speaker-meta"><i class="fa-solid fa-briefcase" aria-hidden="true"></i>16 years of
+                                experience</p>
+                            <p class="speaker-meta"><i class="fa-solid fa-envelope" aria-hidden="true"></i><a
+                                    href="mailto:vkaluvakuri@gmail.com">vkaluvakuri@gmail.com</a></p>
+                            <h3 class="speaker-talk-title">Resilient by Design: Engineering High-Throughput Cloud
+                                Systems for the Next Decade</h3>
+                            <div class="speaker-abstract"><strong>Talk Abstract</strong>Rapid growth in real-time
+                                enterprise demand requires cloud systems that pair resilience with massive throughput.
+                                This keynote presents modern architectural blueprints for building fault-tolerant,
+                                high-concurrency software. Learn actionable strategies leveraging reactive programming,
+                                event-driven serverless pipelines, and adaptive state management to preserve ultra-low
+                                latency and seamless performance under extreme scale.</div>
+                            <!-- <div class="speaker-abstract"><strong>Speaker Profile</strong>A senior IT professional with
+                a Master’s degree in Computer Science and over 16 years of industry experience, he
+                focuses on AI, cloud computing, and Java to solve complex real-world challenges. His
+                published AI/ML and Java integration research has earned the ISSN International Best
+                Innovation Award for Research, Excellence. He is a Distinguished Fellow of SCRS and
+                an IEEE Senior Member.</div> -->
+                            <!-- <p class="speaker-meta mt-3"><i class="fa-solid fa-globe" aria-hidden="true"></i><a
+                    href="https://www.ice2cpt.org/" target="_blank" rel="noopener noreferrer">Conference
+                    website</a></p> -->
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Keynote: Srinivas Nune -->
+                <div class="col-12 col-md-6 col-xl-3">
+                    <article class="speaker-card">
+                        <div class="speaker-card-top"></div>
+                        <div class="speaker-content">
+                            <div class="speaker-image-wrapper">
+                                <!-- Replace YOUR_IMAGE_LINK_HERE with your actual image URL -->
+                                <img src="images/speaker2.jpeg" alt="Srinivas Nune" class="speaker-image"
+                                    style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <span class="speaker-tag">Keynote Speaker</span>
+                            <h2 class="speaker-name">Srinivas Nune</h2>
+                            <p class="speaker-designation">Principal Software Engineer</p>
+                            <p class="speaker-affiliation">Dell Technologies, USA</p>
+                            <div class="speaker-divider"></div>
+                            <p class="speaker-meta"><i class="fa-solid fa-briefcase" aria-hidden="true"></i>14 years of
+                                experience</p>
+                            <p class="speaker-meta"><i class="fa-solid fa-envelope" aria-hidden="true"></i><a
+                                    href="mailto:Srinivas.nune9792@gmail.com">Srinivas.nune9792@gmail.com</a></p>
+                            <h3 class="speaker-talk-title">Artificial Intelligence and Emerging Technologies: Building
+                                Intelligent and Sustainable Systems</h3>
+                            <div class="speaker-abstract"><strong>Talk Abstract</strong>Artificial Intelligence and
+                                emerging technologies are reshaping modern engineering and digital systems. This talk
+                                explores the role of AI, cloud computing, IoT, automation, and advanced analytics in
+                                developing intelligent, efficient, and sustainable solutions. It will highlight industry
+                                applications and key challenges. <em>(The provided abstract was cut off in the supplied
+                                    text.)</em></div>
+                            <!-- <p class="speaker-meta mt-3"><i class="fa-solid fa-globe" aria-hidden="true"></i><a
+                    href="https://www.ice2cpt.org/" target="_blank" rel="noopener noreferrer">Conference
+                    website</a></p> -->
+                        </div>
+                    </article>
+                </div>
             </div>
 
         </div>
